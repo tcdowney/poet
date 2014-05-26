@@ -1,8 +1,15 @@
-(ns poet.core)
+(ns poet.core
+  (:require [poet.nlp :as nlp])
+  (:require [clojure.string]))
+
+(nlp/de-tokenize (nlp/tokenize (slurp "/home/tcdowney/Dev/spams/hey")))
+
+(defn reversify [tokens]
+  (map clojure.string/reverse tokens))
 
 (defn poemify [path]
   (spit (str path "-poemified")
-        (str (slurp path) "\nAdded another line of poem!")))
+        (nlp/de-tokenize (reversify (nlp/tokenize (slurp path))))))
 
 (defn -main [& args]
   (when-not (empty? args)
