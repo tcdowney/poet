@@ -41,7 +41,7 @@
 
 (defn
   why-to-y
-  "Replaces all 'you's with 'u's!"
+  "Replaces all 'why's with 'y's!"
   [text]
     (clojure.string/replace text
                             #"\A[wW][hH][yY]\z"
