@@ -49,11 +49,36 @@
                               "Y"
                               "y")))
 
+(defn
+  first-consec-dup-chars
+  "Given a string, it returns the first occurrence of consecutive duplicate characters."
+  [chars]
+    (cond
+     (> 2 (count chars)) ()
+     (= (first chars) (second chars))
+       (apply str (cons (first chars) (cons (second chars) ())))
+     :else (recur (rest chars))))
+
+(defn
+  flying-solo
+  "Given a substring, replaces all instances of that substring in a string with its first character."
+  [text substr]
+    (if-not (empty? substr)
+      (clojure.string/replace text (re-pattern substr) (str (first substr)))
+      text))
+
+(defn
+  flying-doop
+  "Calls flying-solo on a given string with the first occurrence of consecutive duplicate characters"
+  [string]
+    (flying-solo string (first-consec-dup-chars string)))
+
 (def efficiency-functions (list poet.literary.efficiency/dalek
                                 poet.literary.efficiency/wh-refiner
                                 poet.literary.efficiency/why-to-y
                                 poet.literary.efficiency/are-to-r
-                                poet.literary.efficiency/you-to-u))
+                                poet.literary.efficiency/you-to-u
+                                poet.literary.efficiency/flying-doop))
 
 (defn optimize-efficiency [tokens functions]
   (cond

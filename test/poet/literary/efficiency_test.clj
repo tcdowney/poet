@@ -63,5 +63,35 @@
     (is (= "whyte" (are-to-r "whyte")))
     (is (= "saywhy" (are-to-r "saywhy")))))
 
+(deftest first-consec-dup-chars-test
+  (testing "when there are no consecutive characters"
+    (is (= () (first-consec-dup-chars "Hi!"))))
+  (testing "when an empty string is passed in"
+    (is (= () (first-consec-dup-chars ""))))
+  (testing "when a string with less than two letters is passed in"
+    (is (= () (first-consec-dup-chars "b"))))
+  (testing "when there is only one set of consecutive duplicate characters"
+    (is (= "nn" (first-consec-dup-chars "announcement"))))
+  (testing "when there are more than one sets of consecutive duplicate characters"
+    (is (= "oo" (first-consec-dup-chars "bookkeeper")))))
+
+(deftest flying-solo-test
+  (testing "when empty text is passed in"
+    (is (= "" (flying-solo "" "aa"))))
+  (testing "when an empty substring is passed in"
+    (is (= "Hello" (flying-solo "Hello" ""))))
+  (testing "when an empty list is passed in as the substring"
+    (is (= "Hello" (flying-solo "Hello" ()))))
+  (testing "that it replaces matched substrings with the first character of the substring"
+    (is (= "Helo" (flying-solo "Hello" "ll")))))
+
+(deftest flying-doop-test
+  (testing "when an empty string is passed in it returns the empty string"
+    (is (= "" (flying-doop ""))))
+  (testing "when a string without any consecutive duplicate letters is passed in it returns the string"
+    (is (= "Hi" (flying-doop "Hi"))))
+  (testing "that it replaces all instances of the first matched consecutive duplicate letters with a single letter"
+    (is (= "Misisippi" (flying-doop "Mississippi")))))
+
 
 
