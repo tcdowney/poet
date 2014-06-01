@@ -93,5 +93,36 @@
   (testing "that it replaces all instances of the first matched consecutive duplicate letters with a single letter"
     (is (= "Misisippi" (flying-doop "Mississippi")))))
 
+(deftest too-few-2s-test
+  ;; two
+  (testing "that it converts all instances of -two to 2"
+    (is (= "2" (too-few-2s "two")))
+    (is (= "mew2" (too-few-2s "mewtwo"))))
+  (testing "that it does not convert all instances of two- to 2"
+    (is (= "twottle" (too-few-2s "twottle"))))
+  (testing "that it handles mixed cases of -two"
+    (is (= "2" (too-few-2s "TwO")))
+    (is (= "mEw2" (too-few-2s "mEwtWo"))))
+
+  ;; too
+  (testing "that it converts all instances of -too to 2"
+    (is (= "2" (too-few-2s "too")))
+    (is (= "mew2" (too-few-2s "mewtoo"))))
+  (testing "that it does not convert all instances of too- to 2"
+    (is (= "toodles" (too-few-2s "toodles"))))
+  (testing "that it handles mixed cases of -too"
+    (is (= "2" (too-few-2s "ToO")))
+    (is (= "mEw2" (too-few-2s "mEwtoO"))))
+
+  ;; to
+  (testing "that it converts all instances of -to to 2"
+    (is (= "2" (too-few-2s "to")))
+    (is (= "in2" (too-few-2s "into"))))
+  (testing "that it does not convert all instances of to- to 2"
+    (is (= "total" (too-few-2s "total"))))
+  (testing "that it handles mixed cases of -to"
+    (is (= "2" (too-few-2s "tO")))
+    (is (= "in2" (too-few-2s "inTo")))))
+
 
 

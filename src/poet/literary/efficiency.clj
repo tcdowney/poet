@@ -50,6 +50,12 @@
                               "y")))
 
 (defn
+  too-few-2s
+  "Replaces instaces of -too, -to, and -two with 2"
+  [text]
+    (clojure.string/replace text #"([tT][oO][oO]\z|[tT][oO]\z|[tT][wW][oO]\z)" "2"))
+
+(defn
   first-consec-dup-chars
   "Given a string, it returns the first occurrence of consecutive duplicate characters."
   [chars]
@@ -75,6 +81,7 @@
 
 (def efficiency-functions (list poet.literary.efficiency/dalek
                                 poet.literary.efficiency/wh-refiner
+                                poet.literary.efficiency/too-few-2s
                                 poet.literary.efficiency/why-to-y
                                 poet.literary.efficiency/are-to-r
                                 poet.literary.efficiency/you-to-u
