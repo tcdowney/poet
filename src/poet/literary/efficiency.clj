@@ -51,9 +51,15 @@
 
 (defn
   too-few-2s
-  "Replaces instaces of -too, -to, and -two with 2"
+  "Replaces instances of -too, -to, and -two with 2"
   [text]
     (clojure.string/replace text #"([tT][oO][oO]\z|[tT][oO]\z|[tT][wW][oO]\z)" "2"))
+
+(defn
+  thats-gr8
+  "Replaces instances of -ate with 8"
+  [text]
+    (clojure.string/replace text #"[aA][tT][eE]\z" "8"))
 
 (defn
   first-consec-dup-chars
@@ -82,6 +88,7 @@
 (def efficiency-functions (list poet.literary.efficiency/dalek
                                 poet.literary.efficiency/wh-refiner
                                 poet.literary.efficiency/too-few-2s
+                                poet.literary.efficiency/thats-gr8
                                 poet.literary.efficiency/why-to-y
                                 poet.literary.efficiency/are-to-r
                                 poet.literary.efficiency/you-to-u

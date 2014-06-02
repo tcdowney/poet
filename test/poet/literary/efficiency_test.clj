@@ -124,5 +124,14 @@
     (is (= "2" (too-few-2s "tO")))
     (is (= "in2" (too-few-2s "inTo")))))
 
+(deftest thats-gr8-test
+  (testing "that it only modifies the -ate suffix"
+    (is (= "Atelectasis" (thats-gr8 "Atelectasis")))
+    (is (= "water" (thats-gr8 "water"))))
+  (testing "that it is case insensitive"
+    (is (= "ingr8" (thats-gr8 "ingrATE")))
+    (is (= "st8" (thats-gr8 "stAtE")))
+    (is (= "M8" (thats-gr8 "Mate")))))
+
 
 
