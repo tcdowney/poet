@@ -7,7 +7,7 @@ Witness a small sample of its power:
 (thats-gr8 "ingrate") ;; substitutes the -ate suffix with an 8
 ;=> "ingr8"
 
-(dalek "next") ;; exterminates 'e's the precede 'x's
+(dalek "next") ;; exterminates 'e's that precede 'x's
 ;=> "nxt"
 ```
 
