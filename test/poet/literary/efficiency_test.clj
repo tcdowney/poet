@@ -160,5 +160,15 @@
     (is (= "4" (need-more-4s "FORE")))
     (is (= "4ward" (need-more-4s "fOrEward")))))
 
+(deftest sting-like-a-b-test
+  ;; be+
+  (testing "that it converts instances of bee to b"
+    (testing "that is is case insensitive"
+      (is (= "b" (sting-like-a-b "be")))
+      (is (= "B" (sting-like-a-b "BEE")))
+      (is (= "b" (sting-like-a-b "bEeEe"))))
+    (testing "when a letter follows e"
+      (is (= "BEEN" (sting-like-a-b "BEEN"))))))
+
 
 

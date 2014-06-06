@@ -62,6 +62,12 @@
     (clojure.string/replace text #"([fF][oO][uU][rR]|[fF][oO][rR]([eE]|))" "4"))
 
 (defn
+  sting-like-a-b
+  "Replaces the word 'be' (+ any number of 'e's) with the letter 'b'"
+  [text]
+    (clojure.string/replace text #"\A[bB][eE]+\z" #(str (first %1))))
+
+(defn
   thats-gr8
   "Replaces instances of -ate with 8"
   [text]
