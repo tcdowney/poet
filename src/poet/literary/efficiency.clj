@@ -56,6 +56,12 @@
     (clojure.string/replace text #"([tT][oO][oO]\z|[tT][oO]\z|[tT][wW][oO]\z)" "2"))
 
 (defn
+  need-more-4s
+  "Replaces instances of four, fore, and for with 4"
+  [text]
+    (clojure.string/replace text #"([fF][oO][uU][rR]|[fF][oO][rR]([eE]|))" "4"))
+
+(defn
   thats-gr8
   "Replaces instances of -ate with 8"
   [text]

@@ -133,5 +133,32 @@
     (is (= "st8" (thats-gr8 "stAtE")))
     (is (= "M8" (thats-gr8 "Mate")))))
 
+(deftest need-more-4s-test
+  ;; four
+  (testing "that it converts all instances of four to 4"
+    (is (= "4" (need-more-4s "four")))
+    (is (= "mew4" (need-more-4s "mewfour"))))
+  (testing "that it handles mixed cases of four"
+    (is (= "4" (need-more-4s "FOUR")))
+    (is (= "mEw4" (need-more-4s "mEwfOuR"))))
+
+  ;; too
+  (testing "that it converts all instances of for to 4"
+    (is (= "4" (need-more-4s "for")))
+    (is (= "4D" (need-more-4s "FORD"))))
+  (testing "that it handles mixed cases of for"
+    (is (= "4" (need-more-4s "FoR")))
+    (is (= "mEw4" (need-more-4s "mEwfOr"))))
+
+  ;; to
+  (testing "that it converts all instances of fore to 4"
+    (is (= "4" (need-more-4s "fore")))
+    (is (= "be4" (need-more-4s "before"))))
+  (testing "that it does not pick up more than one 'e'"
+    (is (= "4EE" (need-more-4s "FOREEE"))))
+  (testing "that it handles mixed cases of fore"
+    (is (= "4" (need-more-4s "FORE")))
+    (is (= "4ward" (need-more-4s "fOrEward")))))
+
 
 
