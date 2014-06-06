@@ -4,9 +4,6 @@
   (:require [poet.literary.efficiency :as efficiency])
   (:require [clojure.string]))
 
-(defn reversify [tokens]
-  (map clojure.string/reverse tokens))
-
 (defn poemify [path]
   (spit (str path "-poemified")
         (nlp/de-tokenize (efficiency/optimize-efficiency (nlp/tokenize (slurp path))
