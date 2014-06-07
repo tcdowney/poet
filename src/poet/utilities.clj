@@ -9,10 +9,15 @@
 
 (defn vowel? [c]
   (or (= \a c)
+      (= \A c)
       (= \e c)
+      (= \E c)
       (= \i c)
+      (= \I c)
       (= \o c)
-      (= \u c)))
+      (= \O c)
+      (= \u c)
+      (= \U c)))
 
 (defn 
   count-vowels
