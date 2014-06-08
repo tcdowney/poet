@@ -14,6 +14,8 @@ Witness a small sample of its power:
 
 Just kidding, poet makes your writing terrible. :hankey:
 
+This project is really just for fun.  It's my Clojure playground and has no practical use. :)
+
 I'm currently reading through the second edition of [The Joy of Clojure](http://www.manning.com/fogus2/) and this project is just a fun way to play around with the language.  It uses `clojure-opennlp` to tokenize and detokenize text and detect sentences and contains a variety of toy functions that can be mapped over tokenized text.
 
 ## License

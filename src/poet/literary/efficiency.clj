@@ -100,6 +100,8 @@
 (def efficiency-functions (list poet.literary.efficiency/dalek
                                 poet.literary.efficiency/wh-refiner
                                 poet.literary.efficiency/too-few-2s
+                                poet.literary.efficiency/need-more-4s
+                                poet.literary.efficiency/sting-like-a-b
                                 poet.literary.efficiency/thats-gr8
                                 poet.literary.efficiency/why-to-y
                                 poet.literary.efficiency/are-to-r

@@ -19,7 +19,7 @@
     (is (= false (upper-case? "a lower-case string")))))
 
 (deftest vowel?-test
-  (testing "that is returns true when a vowel is passed in"
+  (testing "that it returns true when a vowel character is passed in"
     (is (= true (vowel? \a)))
     (is (= true (vowel? \A)))
     (is (= true (vowel? \e)))
@@ -30,11 +30,11 @@
     (is (= true (vowel? \O)))
     (is (= true (vowel? \u)))
     (is (= true (vowel? \U))))
-  (testing "that is returns false when a consonant is passed in"
+  (testing "that it returns false when a non-vowel character is passed in"
     (is (= false (vowel? \b)))
-    (is (= false (vowel? \d)))
-    (is (= false (vowel? \n)))
-    (is (= false (vowel? \p)))
+    (is (= false (vowel? "o242")))
+    (is (= false (vowel? \$)))
+    (is (= false (vowel? \1)))
     (is (= false (vowel? \Z)))))
 
 (deftest count-vowels-test
