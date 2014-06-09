@@ -3,7 +3,8 @@
 ;; - Ernest Hemingway
 
 (ns poet.literary.eminence
-  (:require [clojure.string]))
+  (:require [clojure.string])
+  (:require [poet.utilities :as utils]))
 
 (defn
   the-metathesis
@@ -26,7 +27,7 @@
 
 (defn
   ike-metathesis-ei-variation
-  "Swaps all occurrences of the letters 'ike' with 'iek'"
+  "Swaps all occurrences of the letters 'ike' with 'eik'"
   [text]
     (clojure.string/replace text
                             #"\w[iI][kK][eE]"
