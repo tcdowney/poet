@@ -11,20 +11,20 @@
   dalek
   "EXTERMINATE!  Exterminates the 'e' on all interior 'ex's"
   [text]
-    (clojure.string/replace text #"\wex" #(str (first %1) "x")))
+    (clojure.string/replace text #"(?i)\wex" #(str (first %1) "x")))
 
 (defn
   wh-refiner
   "Removes suplerfluous h's -- sometimes."
   [text]
-    (clojure.string/replace text #"[wW]h[^oy]" #(str (first %1) (second (rest %1)))))
+    (clojure.string/replace text #"(?i)wh[^oy]" #(str (first %1) (second (rest %1)))))
 
 (defn
   are-to-r
   "Replaces all 'are's with 'r's!"
   [text]
     (clojure.string/replace text
-                            #"\A[aA][rR][eE]\z"
+                            #"(?i)\Aare\z"
                             #(if (utils/capitalized? (first %1))
                               "R"
                               "r")))
@@ -34,7 +34,7 @@
   "Replaces all 'you's with 'u's!"
   [text]
     (clojure.string/replace text
-                            #"\A[yY][oO][uU]"
+                            #"(?i)\Ayou"
                             #(if (utils/capitalized? (first %1))
                               "U"
                               "u")))
@@ -44,7 +44,7 @@
   "Replaces all 'why's with 'y's!"
   [text]
     (clojure.string/replace text
-                            #"\A[wW][hH][yY]\z"
+                            #"(?i)\Awhy\z"
                             #(if (utils/capitalized? (first %1))
                               "Y"
                               "y")))
@@ -53,25 +53,25 @@
   too-few-2s
   "Replaces instances of -too, -to, and -two with 2"
   [text]
-    (clojure.string/replace text #"([tT][oO][oO]\z|[tT][oO]\z|[tT][wW][oO]\z)" "2"))
+    (clojure.string/replace text #"(?i)(too\z|to\z|two\z)" "2"))
 
 (defn
   need-more-4s
   "Replaces instances of four, fore, and for with 4"
   [text]
-    (clojure.string/replace text #"([fF][oO][uU][rR]|[fF][oO][rR]([eE]|))" "4"))
+    (clojure.string/replace text #"(?i)(four|for(e|))" "4"))
 
 (defn
   sting-like-a-b
   "Replaces the word 'be' (+ any number of 'e's) with the letter 'b'"
   [text]
-    (clojure.string/replace text #"\A[bB][eE]+\z" #(str (first %1))))
+    (clojure.string/replace text #"(?i)\Abe+\z" #(str (first %1))))
 
 (defn
   thats-gr8
   "Replaces instances of -ate with 8"
   [text]
-    (clojure.string/replace text #"[aA][tT][eE]\z" "8"))
+    (clojure.string/replace text #"(?i)ate\z" "8"))
 
 (defn
   first-consec-dup-chars

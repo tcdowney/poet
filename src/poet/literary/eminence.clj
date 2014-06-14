@@ -11,7 +11,7 @@
   "Swaps the 'h' and the 'e' in the word 'the'"
   [text]
     (clojure.string/replace text
-                            #"\A[tT][hH][eE]\z"
+                            #"(?i)\Athe\z"
                             #(str (first %1) (second (rest %1)) (second %1))))
 
 (defn
@@ -19,7 +19,7 @@
   "Swaps all occurrences of the letters 'ike' with 'iek'"
   [text]
     (clojure.string/replace text
-                            #"\w[iI][kK][eE]"
+                            #"(?i)\wike"
                             #(str (first %1 )
                                   (second %1)
                                   (second (rest (rest %1)))
@@ -30,7 +30,7 @@
   "Swaps all occurrences of the letters 'ike' with 'eik'"
   [text]
     (clojure.string/replace text
-                            #"\w[iI][kK][eE]"
+                            #"(?i)\wike"
                             #(str (first %1 )
                                   (second (rest (rest %1)))
                                   (second %1)
