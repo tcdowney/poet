@@ -6,8 +6,10 @@
 
 (defn poemify [path]
   (spit (str path "-poemified")
-        (nlp/de-tokenize (efficiency/optimize-efficiency (nlp/tokenize (slurp path))
-                                                         efficiency/efficiency-functions))))
+        (nlp/de-tokenize
+          (eminence/disseminate-eminence
+            (efficiency/optimize-efficiency (nlp/tokenize (slurp path)) efficiency/efficiency-functions)
+            eminence/eminence-functions))))
 
 (defn -main [& args]
   (when-not (empty? args)

@@ -4,7 +4,8 @@
 
 (ns poet.literary.eminence
   (:require [clojure.string])
-  (:require [poet.utilities :as utils]))
+  (:require [poet.utilities :as utils])
+  (:require [poet.literary.spontaneity :as spontaneity]))
 
 (defn
   the-metathesis
@@ -35,3 +36,12 @@
                                   (second (rest (rest %1)))
                                   (second %1)
                                   (second (rest %1)))))
+
+(def eminence-functions (list poet.literary.eminence/the-metathesis
+                              poet.literary.eminence/ike-metathesis-ie-variation
+                              poet.literary.eminence/ike-metathesis-ei-variation))
+
+(defn disseminate-eminence [tokens functions]
+  (cond
+    (empty? functions) tokens
+    :else (recur (map (spontaneity/fifty-fifty (first functions)) tokens) (rest functions))))

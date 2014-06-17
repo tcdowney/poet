@@ -22,3 +22,13 @@
     (apply merge-with concat maps)))
 
 (markov-chains (nlp/get-sentences sample-text))
+
+(defn sentence [data]
+  (loop [ws (data :start)
+         acc []]
+    (let [w (rand-nth ws)
+          nws (data w)
+          nacc (concat acc [w])]
+      (if (= \. (last w))
+        (clojure.string/join " " nacc)
+        (recur nws nacc)))))
