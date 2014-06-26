@@ -2,7 +2,8 @@
   (:require [poet.nlp :as nlp])
   (:require [poet.literary.eminence :as eminence])
   (:require [poet.literary.efficiency :as efficiency])
-  (:require [clojure.string]))
+  (:require [clojure.string])
+  (:gen-class))
 
 (defn poemify [path]
   (spit (str path "-poemified")
